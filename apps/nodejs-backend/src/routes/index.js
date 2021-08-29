@@ -1,4 +1,6 @@
 const health = require("./health");
+const users = require("./users");
+
 const routes = [];
 
 const defaultHandler = (req, res) => {
@@ -28,6 +30,7 @@ routes.push({
     handler: defaultHandler
 });
 
-routes.push(health);
+health.map(route => routes.push(route));
+users.map(route => routes.push(route));
 
 module.exports = routes;

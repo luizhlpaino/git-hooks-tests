@@ -1,0 +1,14 @@
+#!/bin/sh
+DIFF_LIST=`git diff-index --cached --name-only HEAD`
+NODEJS_CHANGES=`echo $DIFF_LIST | grep -o "nodejs-backend/src/" | wc -l`
+
+#echo \$NODEJS_CHANGES = $NODEJS_CHANGES
+#echo \$PWD = $PWD
+
+if [ $NODEJS_CHANGES -gt 0 ]; then
+    #echo "MUST RUN TEST"
+    cd apps/nodejs-backend
+    npm test
+#else
+    #echo "NO TEST NEEDED"
+fi

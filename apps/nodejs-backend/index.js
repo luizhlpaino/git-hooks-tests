@@ -6,6 +6,7 @@ const port = 3000;
 const bla = [];
 
 routes.map(route => {
+    console.log(route)
     app[route.method](route.path, route.handler);    
 });
 
